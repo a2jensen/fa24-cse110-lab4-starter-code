@@ -1,5 +1,6 @@
 import AddExpenseForm from "../components/Expense/AddExpenseForm";
 import Budget from "../components/Budget/Budget";
+import EditBudget from "../components/Budget/EditBudget";
 import ExpenseList from "../components/Expense/ExpenseList";
 import ExpenseTotal from "../components/Expense/ExpenseTotal";
 import Remaining from "../components/Remaining";
@@ -30,6 +31,9 @@ export const MyBudgetTracker = () => {
         <div className="col-sm">
           <AddExpenseForm />
         </div>
+      </div>
+      <div className="row mt-3">
+        <EditBudget/>
       </div>
     </div>
   );
