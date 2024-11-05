@@ -54,6 +54,8 @@ describe("Add an Expense", () => {
   });
 });
 
+
+// mock test : deleting an expense
 describe("Delete an Expense", () => {
   test("deletes an expense and updates the list and totals", () => {
     // Mock functions for updating context
@@ -112,6 +114,7 @@ describe("Delete an Expense", () => {
   });
 });
 
+// test : add expense form and budget update
 describe("AddExpenseForm and Budget Update", () => {
   test("adds an expense and updates the budget correctly", () => {
     // Mock functions for updating context
@@ -186,6 +189,7 @@ describe("AddExpenseForm and Budget Update", () => {
     );
 
     // Check that the budget has been updated after adding the expense
-    expect(screen.getByText("Budget: 800")).toBeInTheDocument(); // Expect budget to be updated
+    expect(screen.getByText("Budget: 8000")).toBeInTheDocument(); // Expect budget to be updated
+    // original working value : 800
   });
 });
