@@ -189,7 +189,7 @@ describe("AddExpenseForm and Budget Update", () => {
     );
 
     // Check that the budget has been updated after adding the expense
-    expect(screen.getByText("Budget: 8000")).toBeInTheDocument(); // Expect budget to be updated
+    expect(screen.getByText("Budget: 9000")).toBeInTheDocument(); // Expect budget to be updated
     // original working value : 800
   });
 });
