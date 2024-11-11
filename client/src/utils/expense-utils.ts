@@ -18,12 +18,16 @@ export const createExpense = async (expense: Expense): Promise<Expense> => {
 
 // Function to delete an expense in the backend. Method: DELETE
 export const deleteExpense = async (id: string): Promise<void> => {
+    console.log(`attempting to delete expense with ID ${id}`)
 	const response = await fetch(`${API_BASE_URL}/expenses/${id}`, {
     	method: "DELETE",
 	});
 	if (!response.ok) {
-    	throw new Error("Failed to delete expense");
+        const errorData = await response.json();
+    	console.error("Failed to delete expense", errorData);
+        throw new Error("Failed to delete expense")
 	}
+    console.log("expense successfully deleted....")
 };
 
 // Function to get all expenses from the backend. Method: GET
