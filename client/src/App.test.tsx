@@ -11,6 +11,7 @@ import { Expense } from "./types/types"
 // covers adding expenses, checking expenses, checking budget updates all accordingly
 
 
+//** 
 // Mocking the setExpenses function
 describe("Add an Expense", () => {
   test("adds an expense when the form is submitted", () => {
@@ -46,7 +47,7 @@ describe("Add an Expense", () => {
       expect.any(Function) // A function was passed to update expenses
     );
 
-    const newExpense = { name: "Test Expense", cost: 50, id: expect.any(String) };
+    const newExpense = { description: "Test Expense", cost: 50, id: expect.any(String) };
     setExpenses.mockImplementation((setFn) => {
       const updatedExpenses = setFn([]); // Simulate adding to an empty array
       expect(updatedExpenses).toEqual([newExpense]);
@@ -64,7 +65,7 @@ describe("Delete an Expense", () => {
 
     // Initial expenses list with one expense
     const initialExpenses = [
-      { id: "111", name: "Test Expense", cost: 50 },
+      { id: "111", description: "Test Expense", cost: 50 },
     ];
 
     // Providing a mock value for the context including all necessary properties
@@ -175,7 +176,7 @@ describe("AddExpenseForm and Budget Update", () => {
     rerender(
       <AppContext.Provider
         value={{
-          expenses: [{ id: "1", name: "New Expense", cost: 200 }],
+          expenses: [{ id: "1", description: "New Expense", cost: 200 }],
           setExpenses,
           budget: { id: "1", total: 800 }, // Budget after subtracting 200
           setBudget,
@@ -193,3 +194,8 @@ describe("AddExpenseForm and Budget Update", () => {
     // original working value : 800
   });
 });
+
+
+/**
+ * 
+ */

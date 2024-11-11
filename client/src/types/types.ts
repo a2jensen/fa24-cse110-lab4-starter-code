@@ -1,8 +1,10 @@
 export type Expense = {
     id: string;
-    name: string;
+    description: string;
     cost: number;
 };
+
+// old : "name"
 
 export type Budget = {
     id: string;
