@@ -14,7 +14,7 @@ interface AppContextType {
 const initialState: AppContextType = {
   expenses: [],
   setExpenses: () => {},
-  budget: { id: '1', total: 10000},
+  budget: { total: 10000},
   setBudget: () => {}
 };
 

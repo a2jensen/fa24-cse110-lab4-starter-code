@@ -7,6 +7,5 @@ export type Expense = {
 // old : "name"
 
 export type Budget = {
-    id: string;
     total: number;
 }
