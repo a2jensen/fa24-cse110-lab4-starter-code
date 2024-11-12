@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { AppContext } from '../../context/AppContext'  
 import Budget from './Budget';
+import { updatedBudget } from '../../utils/budget-utils';
 
 const EditBudget = () => {
     // consuming budget from app context
@@ -18,7 +19,7 @@ const EditBudget = () => {
     }
 
     // on submit function
-    const onSubmit = (budgetConfirm : React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (budgetConfirm : React.FormEvent<HTMLFormElement>) => {
         budgetConfirm.preventDefault(); // prevent form reload
 
         // creates new budget
@@ -26,12 +27,20 @@ const EditBudget = () => {
             id: Math.random().toString(36).substr(2,9),
             total: budgetTotal
         }
-
+        // update it client side
         // replace current expense with updated
         setBudget(newBudget)
 
         // update state to the new updated budget
         setBudgetTotal(budgetTotal);
+
+        try {
+            console.log("about to update budget")
+            await updatedBudget(budgetTotal)
+        } catch {
+            console.error("failed to update budget")
+        }
+
     }
 
     return (
