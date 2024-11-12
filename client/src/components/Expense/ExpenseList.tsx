@@ -8,10 +8,12 @@ import { fetchExpenses } from "../../utils/expense-utils";
 const ExpenseList = () => {
   const { expenses, setExpenses } = useContext(AppContext);
 
-  // fetch expenses on component mount
+  console.log("use effect on ExpenseList abt to happen")
   useEffect (() => {
+    console.log("within use effect, about to call loadExpenses")
     loadExpenses();
   }, [])
+  console.log('LOADED EXPENSES CALLED', expenses)
 
   // function to load expenses and handle errors
   const loadExpenses = async () => {

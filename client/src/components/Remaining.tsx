@@ -3,10 +3,12 @@ import { AppContext } from "../context/AppContext";
 
 const Remaining = () => {
   const { expenses, budget, setBudget } = useContext(AppContext);
-
+  console.log('BUDGET', budget)
+  console.log("about to run totalExpenses function in Remaining.tsx")
   const totalExpenses = expenses.reduce((total, item) => {
     return (total = total + item.cost);
   }, 0);
+  console.log("got through")
 
   const alertType = totalExpenses > budget.total ? "alert-danger" : "alert-success";
 
